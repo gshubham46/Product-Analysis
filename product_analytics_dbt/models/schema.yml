@@ -1,0 +1,73 @@
+version: 2
+
+models:
+
+  # STAGING LAYER
+  - name: stg_events
+    description: "Cleaned raw event-level data from source system"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+
+      - name: session_id
+        tests:
+          - not_null
+
+      - name: event_type
+        tests:
+          - not_null
+
+      - name: event_time
+        tests:
+          - not_null
+
+
+  # DIMENSION TABLES
+  
+  - name: dim_users
+    description: "User dimension table with user-level attributes"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+
+
+  - name: dim_events
+    description: "Event type dimension with ordering for funnel analysis"
+    columns:
+      - name: event_type
+        tests:
+          - not_null
+          - unique
+
+
+  # FACT TABLES
+  
+  - name: fct_sessions
+    description: "Session-level fact table with session metrics"
+    columns:
+      - name: session_id
+        tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_users')
+              field: user_id
+
+
+  - name: fct_user_activity
+    description: "User-level aggregated activity metrics"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('dim_users')
+              field: user_id
