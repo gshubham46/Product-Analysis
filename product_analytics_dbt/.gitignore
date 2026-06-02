@@ -2,3 +2,9 @@
 target/
 dbt_packages/
 logs/
+.DS_Store
+__MACOSX/
+logs/
+*.log
+product_analytics_dbt/target/
+product_analytics_dbt/logs/

@@ -116,6 +116,10 @@ dbt tests are defined in `schema.yml` and run automatically with `dbt test`:
 
 ---
 
+## 📊 Lineage Graph (DBT)
+![Lineage Graph](product_analytics_dbt/assests/Lineage%20Graph.png)
+
+
 ## 📊 Dashboards (Power BI)
 
 Three dashboard pages built on top of the dbt models:
@@ -183,11 +187,11 @@ product_analytics_dbt:
     dev:
       type: postgres
       host: localhost
-      user: your_user
-      password: your_password
+      user: *******
+      password: ******
       port: 5432
       dbname: your_database
-      schema: analytics
+      schema: public
       threads: 4
 ```
 
