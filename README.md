@@ -243,4 +243,17 @@ login → view_home → search → view_content → start_play
      → [logout]            (80% of sessions)
 ```
 
+## 💡 Skills Demonstrated
+
+- SQL & PostgreSQL
+- Data Modeling & Star Schema Design
+- ELT Pipelines
+- dbt Core
+- Data Quality Testing
+- Funnel Analysis
+- Cohort Retention Analysis
+- Power BI & DAX
+- Dashboard Design
+- Git & GitHub
+
 **Event types:** `login`, `view_home`, `search`, `view_content`, `start_play`, `pause`, `resume`, `stop_play`, `add_to_watchlist`, `logout`
